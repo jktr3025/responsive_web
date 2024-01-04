@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        ul, ol, li{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: 1px slateblue solid;
+        }
+        .wrap{}
+        .wrap ul{
+            width: 90%;
+            height: 300px;
+            /* overflow: hidden; */
+            display: flex;
+            /* flex-wrap: wrap;
+            flex-direction: row; */
+            flex-flow: row wrap;
+            justify-content:space-between;
+            align-content: space-around;
+            /* align-items;: center */
+        }
+        .wrap ul li{
+            /* flex-grow: 1 ;
+            flex-shrink: 0 ;
+            flex-basis: 200px; */
+            flex: 1 0 200px;
+
+            /* display: inline-block; */
+            /* float: left; */
+            text-align: center;
+            width: 100px;
+            /* width: calc(100% / 5); */
+            height: 50px;
+            line-height: 50px;
+        }
+        .wrap ul li:nth-child(1){order:9;}
+        .wrap ul li:nth-child(2){order: 5;}
+        .wrap ul li:nth-child(3){order: 1;}
+        .wrap ul li:nth-child(4){order: 8;}
+        .wrap ul li:nth-child(5){order: 4;}
+        .wrap ul li:nth-child(6){order: 2;}
+        .wrap ul li:nth-child(7){order: 10;width: 500px;height: 300px;}
+        .wrap ul li:nth-child(8){order: 6;}
+        .wrap ul li:nth-child(9){order: 7;}
+        .wrap ul li:nth-child(10){order: 3;}
+        .wrap ul li:nth-child(7) .child{
+            height: 100%;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrap ul li:nth-child(7) .child a{
+            border:  1px solid maroon;
+            width: 30%;
+            flex: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul>
+            <li>1ssssssssssssxxxxxfgggggggggxxxxx</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>
+                <div class="child">
+                    <a href="#">11</a>
+                    <a href="#">22</a>
+                </div>
+            </li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+        </ul>
+    </div><!-- wrap -->
+</body>
+</html>

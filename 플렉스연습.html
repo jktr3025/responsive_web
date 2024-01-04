@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .container {
+            display: flex;
+
+            /* flex-direction: row; */
+            /* flex-direction: row-reverse; */
+            /* flex-direction: column; */
+            /* flex-direction: column-reverse; */
+
+            /* flex-wrap: nowrap; */
+            flex-wrap: wrap;
+            /* flex-wrap: wrap-reverse; */
+
+            /* flex-wrap: row wrap; */
+
+            /* justify-content: flex-start; */
+            /* justify-content: flex-end; */
+            /* justify-content: center; */
+            /* justify-content: space-around; */
+            justify-content: space-between;
+
+            /* align-items: flex-end; */
+            /* align-items: flex-start; */
+            /* align-items: center; */
+
+            align-content: center;
+            align-content: space-around;
+            align-content: space-between;
+
+            /* display: inline-flex; */
+
+            background: orangered;
+            border: 1px solid brown;
+            padding: 10px;
+            width: 600px;
+            height: 500px;
+        }
+
+        .item {
+            background: olivedrab;
+            border: 1px seagreen solid;
+            padding: 10px;
+            /* width: 150px;
+            height: 150px; */
+            /* margin: 0 20px; */
+        }
+
+        .item1 {
+            width: 300px;
+            height: 150px;
+        }
+        .contents{
+            background: indigo;
+            border: 1px seagreen solid;
+            padding: 20px;
+            margin: 50px 0;
+            display: flex;
+
+        }
+        .box{
+            background: wheat;
+            border: 1px solid palevioletred;
+            /*  플렉스 베이시스
+            플렉스 아이템의 데이터 있는 영역의 크기를 설정
+            row일 때는 너비, colum일때는 높이를 말함 
+            단독 사용은 잘 안하고, 그로우와 쉬링크와 같이 사용
+            따로따로 뜯어써도 써도 되지만 보통 flex로 한 번에 같이 써주는데
+            그로우 쉬링크 베이시스 순으로 써줌 flex: 0 1 auto; 
+            px는 베이시스에만 사용*/
+            /* flex-basis: auto; 기본값으로 가진 만큼만 나타남 */
+            /* flex-basis: 0;  */
+            /* flex-basis: 50%; 크기를 n분의 1 */
+            /* flex-basis: 300px; 기본 크기를 300px로 설정, 단 글자가 넘쳐도 넘치는 내용 보여줌*/
+            /* flex-basis:50px ; */
+            /* flex-basis: 10rem; */
+            /* flex-basis: content; 박스에 위드값을 걸었을 떄 박스 위드값 만큼 나타남 */
+            width: 100px;
+            flex-basis: 100px;
+            /* flex-grow: ; 플렉스-베이시스를 기준으로 커질 때 여백의 비율 
+            값이 커질 수록 크게 늘어남 */
+            /* flex-grow: 0; 기본값으로 내용만큼만 나타냄  */
+            /* flex-shrink: ; 플렉스-베이시스를 기준으로 작아질 때 여백의 비율  
+            값이 커질 수록 작게 줄어들음*/
+            flex-grow: 1;
+        }
+
+        .f_container{
+            width: 80%;
+            height: 180px;
+            margin-bottom: 20px;
+            display: flex;
+            border: 1px solid black;
+
+        }
+        .f_item{
+            height: 150px;
+            text-align: center;
+            line-height: 150px;
+            flex-basis: 120px;
+        }
+        .f_item:nth-child(1){
+            background: darkblue;
+        }
+        .f_item:nth-child(2){
+            background: darkgreen;
+        }
+        .f_item:nth-child(3){
+            background: slateblue;
+        }
+        .f_item:nth-child(4){
+            background: steelblue;
+        }
+        .container1 .f_item:nth-child(1){flex-grow: 0;}
+        .container1 .f_item:nth-child(2){flex-grow: 0;}
+        .container1 .f_item:nth-child(3){flex-grow: 0;}
+        .container1 .f_item:nth-child(4){flex-grow: 1;}
+        .container2{}
+        .container2 .f_item:nth-child(1){flex-grow: 1;}
+        .container2 .f_item:nth-child(2){flex-grow: 3;}
+        .container2 .f_item:nth-child(3){flex-grow: 1;}
+        .container2 .f_item:nth-child(4){flex-grow: 0;}
+        .container3{}
+        .container3 .f_item:nth-child(1){flex-grow: 1;}
+        .container3 .f_item:nth-child(2){flex-grow: 2;}
+        .container3 .f_item:nth-child(3){flex-grow: 1;}
+        .container3 .f_item:nth-child(4){flex-grow: 2;}
+
+        .container4 .f_item:nth-child(1){flex-shrink: 1;}
+        .container4 .f_item:nth-child(2){flex-shrink: 1;}
+        .container4 .f_item:nth-child(3){flex-shrink: 1;}
+        .container4 .f_item:nth-child(4){flex-shrink: 1;}
+
+        .container5 .f_item:nth-child(1){flex-shrink: 1;}
+        .container5 .f_item:nth-child(2){flex-shrink: 2;}
+        .container5 .f_item:nth-child(3){flex-shrink: 0;}
+        .container5 .f_item:nth-child(4){flex-shrink: 0;}
+
+        .container6 .f_item:nth-child(1){flex-shrink: 1;}
+        .container6 .f_item:nth-child(2){flex-shrink: 4;}
+        .container6 .f_item:nth-child(3){flex-shrink: 1;}
+        .container6 .f_item:nth-child(4){flex-shrink: 1;}
+        
+        .container7 .f_item:nth-child(1){flex:1 1 100px;}
+        .container7 .f_item:nth-child(2){flex:1 1 100px;}
+        .container7 .f_item:nth-child(3){flex:1 1 100px;}
+        .container7 .f_item:nth-child(4){flex:1 1 100px;}
+
+        .container8 {
+            width: 500px;
+            height: 400px;
+            flex-wrap: wrap;
+            align-content: space-around;
+            justify-content: space-around;
+        }
+        .container8 .f_item{
+            border: 1px solid black;
+        }
+        .container8 .f_item:nth-child(1){
+            width: 100px;
+            height: 150px;
+            /* align-self: auto; */
+            /* align-self: flex-end; */
+            /* align-self: flex-start; */
+            /* align-self: center; */
+            /* align-self: stretch; */
+        }
+        .container8 .f_item:nth-child(2){
+            width: 120px;
+            height: 110px;
+            /* align-self: stretch; */
+        }
+        .container8 .f_item:nth-child(3){
+            width: 100px;
+            height: 140px;
+        }
+        .container8 .f_item:nth-child(4){
+            width: 120px;
+            height: 140px;
+        }
+        .container8 .f_item:nth-child(5){
+            width: 100px;
+            height: 130px;
+        }
+        .container8 .f_item:nth-child(6){
+            width: 130px;
+            height: 100px;
+        }
+
+
+
+
+        </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">fssssss <br> rororo <br> ramdm</div>
+        <div class="item item1">fs dfs sfs sffsf sfsdf sfs sffsf sfsd sfs sㅇㅇㅇㅇㅇㅇㅇㅇffsf sfsd dsf </div>
+        <div class="item">fsssfsfsfsf</div>
+    </div>
+
+    <div class="contents">
+        <div class="box">sjfs</div>
+        <div class="box">eioroiioieoiroiwoirㄴㄴㄴㄴaaaaaaaaaaaaaaaaaaaaㄴㄴㄴㄴㄴㄴㄴㄴㄴoiwo</div>
+        <div class="box">sjfssssssssssssddddddddddddddddd</div>
+    </div>
+
+    <h1>flex-grow</h1>
+
+    <div class="f_container container1">
+        <div class="f_item">0</div>
+        <div class="f_item">0</div>
+        <div class="f_item">0</div>
+        <div class="f_item">1</div>
+    </div>
+
+    <div class="f_container container2">
+        <div class="f_item">1</div>
+        <div class="f_item">3</div>
+        <div class="f_item">1</div>
+        <div class="f_item">0</div>
+    </div>
+    
+    <div class="f_container container3">
+        <div class="f_item">1</div>
+        <div class="f_item">2</div>
+        <div class="f_item">1</div>
+        <div class="f_item">2</div>
+    </div>
+
+    <h1>flex-shrink</h1>
+    <div class="f_container container4">
+        <div class="f_item">1</div>
+        <div class="f_item">1</div>
+        <div class="f_item">1</div>
+        <div class="f_item">1</div>
+    </div>
+    
+    <div class="f_container container5">
+        <div class="f_item">1</div>
+        <div class="f_item">2</div>
+        <div class="f_item">0</div>
+        <div class="f_item">0</div>
+    </div>
+    
+    <div class="f_container container6">
+        <div class="f_item">1</div>
+        <div class="f_item">4</div>
+        <div class="f_item">1</div>
+        <div class="f_item">1</div>
+    </div>
+
+    <div class="f_container container7">
+        <div class="f_item">1</div>
+        <div class="f_item">1</div>
+        <div class="f_item">1</div>
+        <div class="f_item">1</div>
+    </div>
+    <div class="f_container container8">
+        <div class="f_item">A</div>
+        <div class="f_item">B</div>
+        <div class="f_item">C</div>
+        <div class="f_item">D</div>
+        <div class="f_item">E</div>
+        <div class="f_item">F</div>
+    </div>
+</body>
+
+</html>

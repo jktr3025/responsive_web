@@ -1,0 +1,37 @@
+@charset "utf-8";
+@font-face {
+    font-family: "NanumGothic";
+    src: url("../webfont/NanumGothic.woff");
+}
+@font-face {
+    font-family: "NanumGothic";
+    src: url("../webfont/NanumGothic.eot");
+}
+body{
+    font-family:"NanumGothic", "나눔고딕" , "맑은 고딕" ;
+    background: url(../images/s_images/body_bg.png);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, ol, li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+image{vertical-align: top;}
+
+table{
+    border-collapse: collapse;
+}
+.clear_fix::before , .clear_fix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
